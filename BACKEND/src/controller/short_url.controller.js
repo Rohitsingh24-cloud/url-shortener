@@ -4,7 +4,7 @@ import {
     redirectToShortUrl,
 } from "../services/short_url.service.js";
 import { getUserUrls } from "../services/short_url.service.js";
-import wrapAsync from "../utils/tryCatchWrapper.js"
+import wrapAsync from "../utils/trycatchwrapper.js"
 import { deleteUserUrl } from "../services/short_url.service.js";
 import { updateUserSlug } from "../services/short_url.service.js";
 export const createShortUrl = wrapAsync(async (req,res)=>{
