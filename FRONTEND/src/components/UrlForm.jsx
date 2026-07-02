@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createShortUrl } from '../api/shortUrl.api.js'
 import { useSelector } from 'react-redux'
-
+import { Link } from "@tanstack/react-router";
 import { queryClient } from '../main.jsx'
 
 const UrlForm = () => {
@@ -71,6 +71,17 @@ const UrlForm = () => {
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
         >Shorten URL
         </button>
+        
+
+        {!isAuthenticated && (
+          <div className="mt-4">
+            <Link to="/auth">
+              <button className="w-full border border-blue-500 text-blue-500 py-2 px-4 rounded-md hover:bg-blue-500 hover:text-white transition">
+                Login / Register
+              </button>
+            </Link>
+          </div>
+        )}
          {error && (
           <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-md">
             {error}
