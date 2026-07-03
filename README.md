@@ -60,6 +60,27 @@ It supports secure authentication, anonymous and authenticated URL shortening, R
 
 ---
 
+## 🚀 Performance Benchmark
+
+The application was benchmarked under concurrent load to evaluate throughput and response latency.
+
+| Metric | Value |
+|---------|-------|
+| Concurrent Virtual Users | 500 |
+| Total Requests Processed | 18,616 |
+| Throughput | ~1,829 requests/sec |
+| Successful Redirects | 16,140 |
+| Median Response Time | 288 ms |
+| P95 Response Time | 374 ms |
+| Test Duration | 10 seconds |
+
+
+### Performance Optimizations
+
+- ⚡ Redis caching reduces repeated MongoDB lookups.
+- 🚀 BullMQ processes click analytics asynchronously.
+- 📈 Stateless backend designed for horizontal scaling.
+- 🛡️ Rate limiting protects the API from abuse.
 ## 📂 Project Structure
 
 ```
