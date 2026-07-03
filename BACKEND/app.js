@@ -20,8 +20,8 @@ import { getCachedUrl, setCachedUrl } from "./src/dao/redis.dao.js";
 import { redirectLimiter } from "./src/middleware/rateLimiter.middleware.js";
 app.set("trust proxy", 1);
 app.use(cors({
-    origin: config.CLIENT_URL, // your React app
-    credentials: true // 👈 this allows cookies to be sent
+    origin: config.CLIENT_URL, 
+    credentials: true 
 }));
 app.use(requestLogger);
 app.use(express.json());

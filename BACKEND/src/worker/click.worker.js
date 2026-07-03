@@ -7,9 +7,7 @@ const clickWorker = new Worker(
     "click-analytics",
     async (job) => {
         const { shortUrl } = job.data;
-
         await processClick(shortUrl);
-
         logger.info(`Clicks updated for ${shortUrl}`);
     },
     {

@@ -1,8 +1,6 @@
 import logger from "../config/logger.config.js";
-
 const requestLogger = (req, res, next) => {
     const start = Date.now();
-
     res.on("finish", () => {
         logger.info({
             method: req.method,
@@ -12,7 +10,6 @@ const requestLogger = (req, res, next) => {
             ip: req.ip
         });
     });
-
     next();
 };
 

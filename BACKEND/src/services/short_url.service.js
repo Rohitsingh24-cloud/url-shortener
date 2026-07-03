@@ -37,11 +37,8 @@ export const createShortUrlWithUser = async (url,userId,slug=null) => {
 }
 
 export const redirectToShortUrl = async (shortUrl) => {
-
     const cachedUrl = await getCachedUrl(shortUrl);
-
     if (cachedUrl) {
-
         await clickAnalyticsQueue.add(
             "increment-click",
             {
@@ -49,20 +46,15 @@ export const redirectToShortUrl = async (shortUrl) => {
             },
             clickJobOptions
         );
-
         return {
             full_url: cachedUrl,
         };
     }
-
     const url = await findShortUrl(shortUrl);
-
     if (!url) {
         throw new Error("Short URL not found");
     }
-
     await setCachedUrl(shortUrl, url.full_url);
-
     await clickAnalyticsQueue.add(
         "increment-click",
         {
@@ -70,7 +62,6 @@ export const redirectToShortUrl = async (shortUrl) => {
         },
         clickJobOptions
     );
-
     return url;
 };
 export const getUserUrls = async (
@@ -82,25 +73,19 @@ export const getUserUrls = async (
 };
 export const deleteUserUrl = async (id, userId) => {
     const deletedUrl = await deleteUrlById(id, userId);
-
     if (!deletedUrl) {
         throw new Error("URL not found");
     }
-
     return deletedUrl;
 };
 export const updateUserSlug = async (id, userId, slug) => {
     const exists = await getCustomShortUrl(slug);
-
     if (exists && exists._id.toString() !== id) {
         throw new Error("Slug already exists");
     }
-
     const updatedUrl = await updateSlug(id, userId, slug);
-
     if (!updatedUrl) {
         throw new Error("URL not found");
     }
-
     return updatedUrl;
 };
