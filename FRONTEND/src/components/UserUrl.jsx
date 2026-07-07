@@ -4,7 +4,7 @@ import { getAllUserUrls } from "../api/user.api.js";
 import { queryClient } from "../main.jsx";
 import {deleteShortUrl,updateShortUrl,} from "../api/shortUrl.api.js";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://url-shortener-fqv4.onrender.com";
 
 const UserUrl = () => {
 

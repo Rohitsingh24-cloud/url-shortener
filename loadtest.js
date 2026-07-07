@@ -8,8 +8,8 @@ const status429 = new Counter("status429");
 const status500 = new Counter("status500");
 
 export const options = {
-  vus: 500,
-  duration: "10s",
+  vus: 1000,
+  duration: "20s",
 };
 
 export default function () {
